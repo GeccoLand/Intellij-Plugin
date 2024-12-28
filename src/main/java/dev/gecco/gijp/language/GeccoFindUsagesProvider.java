@@ -35,7 +35,7 @@ final class GeccoFindUsagesProvider implements FindUsagesProvider {
     @Override
     public String getType(@NotNull PsiElement element) {
         if (element instanceof GeccoProperty) {
-            return "gecco property";
+            return "Gecco Properties Property";
         }
         return "";
     }

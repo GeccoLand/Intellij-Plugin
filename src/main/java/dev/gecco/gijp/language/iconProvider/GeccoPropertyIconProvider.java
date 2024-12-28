@@ -1,4 +1,4 @@
-package dev.gecco.gijp.iconProvider;
+package dev.gecco.gijp.language.iconProvider;
 
 import com.intellij.ide.IconProvider;
 import com.intellij.psi.PsiElement;

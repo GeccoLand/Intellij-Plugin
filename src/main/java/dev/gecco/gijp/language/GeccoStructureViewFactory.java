@@ -13,7 +13,7 @@ final class GeccoStructureViewFactory implements PsiStructureViewFactory {
 
 
     @Override
-    public @Nullable StructureViewBuilder getStructureViewBuilder(@NotNull PsiFile psiFile) {
+    public @NotNull StructureViewBuilder getStructureViewBuilder(@NotNull PsiFile psiFile) {
         return new TreeBasedStructureViewBuilder() {
             @Override
             public @NotNull StructureViewModel createStructureViewModel(@Nullable Editor editor) {

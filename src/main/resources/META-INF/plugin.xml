@@ -1,8 +1,8 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.superscary.intellijplugin</id>
-    <name>Gecco Language</name>
-    <vendor>Gecco</vendor>
+    <id>dev.gecco.GeccoProperties</id>
+    <name>Gecco Properties</name>
+    <vendor>The Gecco Contributors</vendor>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.java</depends>
@@ -13,25 +13,31 @@
         <annotator language="JAVA" implementationClass="dev.gecco.gijp.language.GeccoAnnotator"/>
 
         <codeInsight.lineMarkerProvider language="JAVA" implementationClass="dev.gecco.gijp.language.GeccoLineMarkerProvider"/>
+        <codeStyleSettingsProvider implementation="dev.gecco.gijp.language.style.GeccoCodeStyleSettingsProvider"/>
         <colorSettingsPage implementation="dev.gecco.gijp.language.GeccoColorSettingsPage"/>
-        <completion.contributor language="Gecco" implementationClass="dev.gecco.gijp.language.GeccoCompletionContributor"/>
+        <completion.contributor language="Gecco Properties" implementationClass="dev.gecco.gijp.language.GeccoCompletionContributor"/>
 
-        <fileType name="Gecco File" implementationClass="dev.gecco.gijp.GeccoFileType" fieldName="INSTANCE" language="Gecco" extensions="gec"/>
+        <fileType name="GeccoProperties File" implementationClass="dev.gecco.gijp.GeccoFileType" fieldName="INSTANCE" language="Gecco Properties" extensions="gecp"/>
 
         <gotoSymbolContributor implementation="dev.gecco.gijp.language.GeccoChooseByNameContributor"/>
 
-        <lang.findUsagesProvider language="Gecco" implementationClass="dev.gecco.gijp.language.GeccoFindUsagesProvider"/>
+        <langCodeStyleSettingsProvider implementation="dev.gecco.gijp.language.style.GeccoLanguageCodeStyleSettingsProvider"/>
+        <lang.commenter language="Gecco Properties" implementationClass="dev.gecco.gijp.language.comments.GeccoCommenter"/>
+        <lang.documentationProvider language="Gecco Properties" implementationClass="dev.gecco.gijp.language.documentation.GeccoDocumentationProvider"/>
+        <lang.findUsagesProvider language="Gecco Properties" implementationClass="dev.gecco.gijp.language.GeccoFindUsagesProvider"/>
         <lang.foldingBuilder language="JAVA" implementationClass="dev.gecco.gijp.language.GeccoFoldingBuilder"/>
-        <!-- TODO: why the fuck does this not work???
-        <lang.formatter language="Gecco" implementationClass="dev.gecco.gijp.language.GeccoFormattingModelBuilder"/>-->
-        <lang.parserDefinition language="Gecco" implementationClass="dev.gecco.gijp.language.GeccoParserDefinition"/>
-        <lang.psiStructureViewFactory language="Gecco" implementationClass="dev.gecco.gijp.language.GeccoStructureViewFactory"/>
-        <lang.refactoringSupport language="Gecco" implementationClass="dev.gecco.gijp.language.GeccoRefactoringSupportProvider"/>
-        <lang.syntaxHighlighterFactory language="Gecco" implementationClass="dev.gecco.gijp.language.GeccoSyntaxHighlighterFactory"/>
+        <!-- TODO: why the fuck does this not work??? #16
+        <lang.formatter language="Gecco Properties" implementationClass="dev.gecco.gijp.language.GeccoFormattingModelBuilder"/>-->
+        <lang.parserDefinition language="Gecco Properties" implementationClass="dev.gecco.gijp.language.GeccoParserDefinition"/>
+        <lang.psiStructureViewFactory language="Gecco Properties" implementationClass="dev.gecco.gijp.language.GeccoStructureViewFactory"/>
+        <lang.refactoringSupport language="Gecco Properties" implementationClass="dev.gecco.gijp.language.GeccoRefactoringSupportProvider"/>
+        <lang.syntaxHighlighterFactory language="Gecco Properties" implementationClass="dev.gecco.gijp.language.GeccoSyntaxHighlighterFactory"/>
 
         <navbar implementation="dev.gecco.gijp.language.GeccoStructureAwareNavbar"/>
 
         <psi.referenceContributor language="JAVA" implementation="dev.gecco.gijp.language.GeccoReferenceContributor"/>
+
+        <spellchecker.support language="Gecco Properties" implementationClass="dev.gecco.gijp.language.spellcheck.GeccoSpellcheckingStrategy"/>
 
         <toolWindow factoryClass="com.github.superscary.intellijplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow" icon="/icons/file_x16.png"/>
     </extensions>

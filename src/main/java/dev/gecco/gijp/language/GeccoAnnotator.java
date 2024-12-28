@@ -16,8 +16,8 @@ import java.util.List;
 
 final class GeccoAnnotator implements Annotator {
 
-    public static final String GECCO_PREFIX_STR = "gecco";
-    public static final String GECCO_SEPARATOR_STR = ":";
+    public static final String GECCO_PREFIX_STR = "gecp";
+    public static final String GECCO_SEPARATOR_STR = "::";
 
     @Override
     public void annotate (@NotNull final PsiElement element, @NotNull AnnotationHolder holder) {
@@ -33,13 +33,13 @@ final class GeccoAnnotator implements Annotator {
         }
 
         // Define the text ranges (start is inclusive, end is exclusive)
-        // "simple:key"
+        // "gecp::key"
         // 0123456790
         TextRange prefixRange = TextRange.from(element.getTextRange().getStartOffset(), GECCO_PREFIX_STR.length() + 1);
         TextRange separatorRange = TextRange.from(prefixRange.getEndOffset(), GECCO_SEPARATOR_STR.length());
         TextRange keyRange = new TextRange(separatorRange.getEndOffset(), element.getTextRange().getEndOffset() - 1);
 
-        // highlight "simple" prefix and ":" separator
+        // highlight "gecp" prefix and "::" separator
         holder.newSilentAnnotation(HighlightSeverity.INFORMATION)
                 .range(prefixRange).textAttributes(DefaultLanguageHighlighterColors.KEYWORD).create();
         holder.newSilentAnnotation(HighlightSeverity.INFORMATION)
@@ -52,8 +52,7 @@ final class GeccoAnnotator implements Annotator {
             holder.newAnnotation(HighlightSeverity.ERROR, "Unresolved property")
                     .range(keyRange)
                     .highlightType(ProblemHighlightType.LIKE_UNKNOWN_SYMBOL)
-                    // TODO: Not completed.
-                    //.withFix(new GeccoCreatePropertyQuickFix(key))
+                    .withFix(new GeccoCreatePropertyQuickFix(key))
                     .create();
         } else {
             holder.newSilentAnnotation(HighlightSeverity.INFORMATION)

@@ -21,6 +21,6 @@ public class GeccoFile extends PsiFileBase {
 
     @Override
     public String toString() {
-        return "Gecco File";
+        return "Gecco Properties File";
     }
 }

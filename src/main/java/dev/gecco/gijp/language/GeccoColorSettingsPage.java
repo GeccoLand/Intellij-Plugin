@@ -69,7 +69,7 @@ final class GeccoColorSettingsPage implements ColorSettingsPage {
     @NotNull
     @Override
     public String getDisplayName() {
-        return "Gecco";
+        return "Gecco Properties";
     }
 
 }

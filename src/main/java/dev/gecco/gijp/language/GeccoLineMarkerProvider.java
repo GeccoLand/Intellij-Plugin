@@ -39,7 +39,7 @@ final class GeccoLineMarkerProvider extends RelatedItemLineMarkerProvider {
             NavigationGutterIconBuilder<PsiElement> builder =
                     NavigationGutterIconBuilder.create(GeccoIcons.FILE_ICON)
                             .setTargets(properties)
-                            .setTooltipText("Navigate to Gecco property");
+                            .setTooltipText("Navigate to gecco property");
             result.add(builder.createLineMarkerInfo(element));
         }
     }

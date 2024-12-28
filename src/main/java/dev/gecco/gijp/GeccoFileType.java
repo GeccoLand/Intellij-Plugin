@@ -16,19 +16,19 @@ public final class GeccoFileType extends LanguageFileType {
     @NotNull
     @Override
     public String getName() {
-        return "Gecco File";
+        return "Gecco Properties File";
     }
 
     @NotNull
     @Override
     public String getDescription() {
-        return "Gecco language file";
+        return "Gecco Properties file";
     }
 
     @NotNull
     @Override
     public String getDefaultExtension() {
-        return "gec";
+        return "gecp";
     }
 
     @Override
