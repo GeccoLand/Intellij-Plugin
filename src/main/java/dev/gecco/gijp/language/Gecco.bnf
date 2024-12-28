@@ -1,0 +1,27 @@
+{
+parserClass="dev.gecco.gijp.language.parser.GeccoParser"
+
+extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+psiClassPrefix="Gecco"
+psiImplClassSuffix="Impl"
+psiPackage="dev.gecco.gijp.language.psi"
+psiImplPackage="dev.gecco.gijp.language.psi.impl"
+
+elementTypeHolderClass="dev.gecco.gijp.language.psi.GeccoTypes"
+elementTypeClass="dev.gecco.gijp.language.psi.GeccoElementType"
+tokenTypeClass="dev.gecco.gijp.language.psi.GeccoTokenType"
+
+psiImplUtilClass="dev.gecco.gijp.language.psi.impl.GeccoPsiImplUtil"
+}
+
+geccoFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY
+{
+    mixin="dev.gecco.gijp.language.GeccoNamedElementImpl"
+    implements="dev.gecco.gijp.language.GeccoNamedElement"
+    methods=[getKey getValue getName setName getNameIdentifier getPresentation]
+}
