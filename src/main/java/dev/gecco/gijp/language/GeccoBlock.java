@@ -14,7 +14,7 @@ public class GeccoBlock extends AbstractBlock {
 
     private final SpacingBuilder spacingBuilder;
 
-    public GeccoBlock(@NotNull ASTNode node, @Nullable Wrap wrap, @Nullable Alignment alignment, SpacingBuilder spacingBuilder) {
+    protected GeccoBlock(@NotNull ASTNode node, @Nullable Wrap wrap, @Nullable Alignment alignment, SpacingBuilder spacingBuilder) {
         super(node, wrap, alignment);
         this.spacingBuilder = spacingBuilder;
     }
@@ -35,7 +35,7 @@ public class GeccoBlock extends AbstractBlock {
 
     @Override
     public Indent getIndent() {
-        return /*Indent.getNormalIndent(true);*/ Indent.getNoneIndent();
+        return Indent.getNoneIndent();
     }
 
     @Nullable

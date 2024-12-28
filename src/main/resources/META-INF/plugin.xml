@@ -17,7 +17,7 @@
         <colorSettingsPage implementation="dev.gecco.gijp.language.GeccoColorSettingsPage"/>
         <completion.contributor language="Gecco Properties" implementationClass="dev.gecco.gijp.language.GeccoCompletionContributor"/>
 
-        <fileType name="GeccoProperties File" implementationClass="dev.gecco.gijp.GeccoFileType" fieldName="INSTANCE" language="Gecco Properties" extensions="gecp"/>
+        <fileType name="Gecco Properties File" implementationClass="dev.gecco.gijp.GeccoFileType" fieldName="INSTANCE" language="Gecco Properties" extensions="gecp"/>
 
         <gotoSymbolContributor implementation="dev.gecco.gijp.language.GeccoChooseByNameContributor"/>
 
